@@ -58,7 +58,7 @@ public class Crawler {
 		return imageURL;
 	}
 	
-	public void fetchAndStoreImage(ArrayList<String> imageURL)
+	public String fetchAndStoreImage(ArrayList<String> imageURL)
 	{
 		for(int i=0;i<imageURL.size();i++)
 		{
@@ -72,11 +72,17 @@ public class Crawler {
 			}
 			
 		}
+		return getSaveDirectory();
+	}
+	
+	private String getSaveDirectory()
+	{
+		return Constant.ASSET_PATH+ "/" + this.TITLE;
 	}
 	
 	private void save(BufferedImage image, String fileName, String ext)
 	{
-		String dirPath = Constant.ASSET_PATH + "/" + this.TITLE;
+		String dirPath = getSaveDirectory();
 		File directory = new File(dirPath);
 		// if the directory does not exist, create it
 		if (!directory.exists()) {
