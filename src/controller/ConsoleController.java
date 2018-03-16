@@ -8,7 +8,6 @@ public class ConsoleController {
 	{
 		String url = args[0];
 		String filePath = CrawlerService.run(url);
-		System.out.println(url);
 	}
 
 }
